@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root{
+    --color-black: #000000;
+    --color-background: #0F0E17;
+    --color-primary: #FED941;
+    --color-grey: #A7A9BE;
+    --color-white: #FFFFFE;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 90%;
+    margin: auto !important;
+    background-color: var(--color-background) !important;
+    font-family:'Montserrat', sans-serif !important;
+    color: var(--color-white)!important;
+}
+/* |||||||||| */
+/*---NAVBAR---*/
+/* |||||||||| */
+
+.nav{
+    background-color: var(--color-background) !important;
+    padding: 24px 0 !important;
+}
+.nav li .link{
+    color: var(--color-white)!important;
+    padding: 0 24px !important;
+    font-weight: 700;
+}
+
+.dropA{
+    color: var(--color-black)!important;
+    font-weight: 500;
+
+}
+
+.nav form input[type='search']{
+    padding: 11px 50px 11px 32px ;
+    background-color: var(--color-white);
+    border-radius: 8px 0 0 8px;
+    border: none !important;
+
+}
+.nav form button{
+    border-radius: 0 8px 8px 0;
+    background-color: var(--color-primary);
+    padding: 11px 12px;
+    border: none !important;
+    color: var(--color-black);
+}
+
+/* |||||||||| */
+/*---SLIDER---*/
+/* |||||||||| */
+
+.slider{
+    border-radius: 8px !important;
+}
+
+
+/* |||||||||| */
+/*---MAIN---*/
+/* |||||||||| */
+
+h2{
+    margin: 48px 0 !important;
+}
+
+.containerCard{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.cardMovie{
+    width: calc(20% - 10px);
+    height: 330px;
+    margin: 0 5px 48px 5px ;
+
+}
+
+.cardMovie .img{
+    width: 100%;
+    height: 100%;
+    position: relative;
+
+}
+
+.cardMovie .img img{
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+
+}
+.rating{
+    position: absolute;
+    top: 10%;
+    padding: 5px 10px;
+    background-color: hsla(0, 0%, 0%, 0.397);
+    border-radius: 0 35% 35% 0;
+    border: 3px solid var(--color-primary);
+    border-left: none;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+}
+.rating i{
+    font-size: 14px;
+    margin-right: 7px;
+    color: #FED941;
+}
+
