@@ -20,7 +20,7 @@ const Home = () => {
           const consultarData = async () => {
             try {
               const { data } = await axios.get(
-                "https://api.themoviedb.org/3/movie/popular?api_key=5c894abf69b18cd1d56a30a29f491a82"
+                "https://api.themoviedb.org/3/movie/popular?api_key=5c894abf69b18cd1d56a30a29f491a82&language=es-ES&page=1"
               );
               // console.log(data.results);
               setMovie(data.results);

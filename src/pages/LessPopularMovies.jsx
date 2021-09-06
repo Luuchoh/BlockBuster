@@ -19,7 +19,7 @@ const LessPopularMovies = () => {
         const consultarData = async () => {
           try {
             const { data } = await axios.get(
-              "https://api.themoviedb.org/3/movie/top_rated?api_key=5c894abf69b18cd1d56a30a29f491a82&page=454"
+              "https://api.themoviedb.org/3/movie/top_rated?api_key=5c894abf69b18cd1d56a30a29f491a82&language=es-ES&page=454"
             );
             // console.log(data.results);
             setMovie(data.results);
@@ -35,7 +35,7 @@ const LessPopularMovies = () => {
     <Fragment>
       <Navbar />
       <SlideBar />
-      <h2 className="my-5">Todas las peliculas</h2>
+      <h2 className="my-5">Peliculas Más Valoradas</h2>
       <div className="col-md-12 m-auto">
         <div className="row">
           <CardMovie  movieAPI={movie}/>

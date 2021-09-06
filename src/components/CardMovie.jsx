@@ -36,8 +36,8 @@ const CardMovie = ({ movieAPI }) => {
   };
 
   
-  console.log(videoMovie)
-  console.log(contentVideo)
+  // console.log(videoMovie)
+  // console.log(contentVideo)
 
   return (
     <div className="containerCard">
