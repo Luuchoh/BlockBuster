@@ -122,8 +122,7 @@ const Login = () => {
                       onClick={handleFacebookLogin}
 
                     >
-                      <i className="fab fa-facebook-f me-2"></i> Ingresa con
-                      with Facebook
+                      <i className="fab fa-facebook-f me-2"></i> Ingresa con Facebook
                     </button>
                   </div>
                   <div className="w-100 text-center mt-4">
@@ -131,7 +130,7 @@ const Login = () => {
                       to="/auth/register"
                       className="text-decoration-none text-black"
                     >
-                      Create new account
+                      Aún no tienes cuenta?
                     </Link>
                   </div>
                 </form>
