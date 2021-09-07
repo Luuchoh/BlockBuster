@@ -1,16 +1,21 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import axios from "axios";
 
 import { startLogOut } from "../actions/auth";
-import { ListarSearch } from "../actions/movieAction";
+import { ListarSearch, setCards } from "../actions/movieAction";
 
 import LogoBB from "../assets/LogoBB.png";
 
+const URLIMG = "https://image.tmdb.org/t/p/original";
+
 const Navbar = () => {
   const dispatch = useDispatch();
+
+  const auth = useSelector(state => state.auth);
 
   const formik = useFormik({
     initialValues: {
@@ -19,12 +24,38 @@ const Navbar = () => {
     validationSchema: Yup.object({
       search: Yup.string().required("Email requerido"),
     }),
-    onSubmit: () => {
-      dispatch(ListarSearch(search))
+    onSubmit: async () => {
+      dispatch(ListarSearch(search));
+
+      const dataDispatch = [];
+      try {
+        const {
+          data: { results },
+        } = await axios.get(
+          `https://api.themoviedb.org/3/search/movie?api_key=5c894abf69b18cd1d56a30a29f491a82&language=es&query=${search}&include_adult=false`
+        );
+        // console.log(results);
+
+        results.forEach((e) => {
+          dataDispatch.push({
+            id: e.id,
+            name: e.original_title,
+            rating: e.vote_average,
+            urlVideo: "",
+            urlImage: URLIMG + e.poster_path,
+            sinopsis: e.overview,
+          });
+        });
+        // console.log(dataDispatch);
+        dispatch(setCards(dataDispatch))
+      } catch (error) {
+        console.log(error);
+      }
+
     },
   });
 
-  const { search } = formik.values
+  const { search } = formik.values;
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light nav">
@@ -66,7 +97,7 @@ const Navbar = () => {
               type="search"
               placeholder="Search"
               aria-label="Search"
-              name='search'
+              name="search"
               value={search}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
@@ -81,7 +112,13 @@ const Navbar = () => {
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              <img src={LogoBB} alt="" width="50px" height="50px" className="rounded-circle"/>
+              <img
+                src={auth.avatar}
+                alt=""
+                width="50px"
+                height="50px"
+                className="rounded-circle"
+              />
             </div>
             <ul className="dropdown-menu dropdown-menu-end text-black">
               <li>

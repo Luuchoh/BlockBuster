@@ -1,21 +1,21 @@
 import Swal from "sweetalert2";
 
 import { types } from "../types/types";
-import { firebase, googleAuthProvider } from "../firebase/firebase-config";
+import { firebase, googleAuthProvider, facebookAuthProvider } from "../firebase/firebase-config";
 
 
 //CREA USUARIO CON CORREO Y CONTRASEÑA
-export const startRegisterWithEmailPasswordName = (email, password, name) => {
+export const startRegisterWithEmailPasswordName = (email, password, name, urlImage) => {
   return (dispatch) => {
     firebase.auth().createUserWithEmailAndPassword(email, password)
       .then(async({user}) => {
 
         // console.log(user);
 
-        await user.updateProfile({displayName: name})
+        await user.updateProfile({displayName: name, photoURL: urlImage})
 
         dispatch(
-          register(user.uid, user.displayName)
+          register(user.uid, user.displayName, user.photoURL)
         )
         // console.log(user);
 
@@ -49,7 +49,7 @@ export const startLoginEmailPassword = (email, password) => {
         // console.log('hola');
         // console.log(user);
         dispatch(
-          login(user.uid, user.displayName)
+          login(user.uid, user.displayName, user.photoURL)
         )
         
       })
@@ -66,7 +66,7 @@ export const startGoogleLogin = () => {
     firebase.auth().signInWithPopup(googleAuthProvider)
       .then(({user}) => {
         dispatch(
-          login(user.uid, user.displayName)
+          login(user.uid, user.displayName, user.photoURL)
         )
         console.log(user);
       })
@@ -77,6 +77,18 @@ export const startGoogleLogin = () => {
 
 }
 
+//INICIA SESION CON FACEBOOK
+export const startFacebookLogin = () => {
+  return (dispatch) => {
+    firebase
+      .auth()
+      .signInWithPopup(facebookAuthProvider)
+      .then(({ user }) => {
+        dispatch(login(user.uid, user.displayName, user.photoURL));
+      });
+  };
+};
+
 //CIERRA SESION EN FIREBASE
 export const startLogOut = () =>{
   return async(dispatch) =>{
@@ -85,7 +97,7 @@ export const startLogOut = () =>{
   }
 }
 
-export const login = (uid, displayname) => {
+export const login = (uid, displayname, imageUrl) => {
 
   // console.log(uid, displayname);
 
@@ -94,16 +106,18 @@ export const login = (uid, displayname) => {
       payload: {
         uid,
         displayname,
+        imageUrl,
       },
     };
   };
 
-  export const register = (uid, displayname) => {
+  export const register = (uid, displayname, imageUrl) => {
     return {
       type: types.logIn,
       payload: {
         uid,
         displayname,
+        imageUrl,
       },
     };
   };

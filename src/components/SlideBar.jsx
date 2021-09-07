@@ -37,19 +37,16 @@ const SlideBar = () => {
         <div className="carousel-item active">
           <img src={Mulan} className="d-block w-100" alt="..." />
           <div className="carousel-caption d-none d-md-block">
-            <h5>Mulan</h5>
           </div>
         </div>
         <div className="carousel-item">
           <img src={Raya} className="d-block w-100" alt="..." />
           <div className="carousel-caption d-none d-md-block">
-            <h5>Raya</h5>
           </div>
         </div>
         <div className="carousel-item">
           <img src={Unidos} className="d-block w-100" alt="..." />
           <div className="carousel-caption d-none d-md-block">
-            <h5>Unidos</h5>
           </div>
         </div>
       </div>

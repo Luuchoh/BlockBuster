@@ -66,7 +66,7 @@ const CardMovie = ({ movieAPI }) => {
                   <h5 className="modal-title">{movie.name}</h5>
                   <button
                     type="button"
-                    className="btn-close"
+                    className="btn-close btn-close-white"
                     data-bs-dismiss="modal"
                     aria-label="Close"
                   >
@@ -93,7 +93,7 @@ const CardMovie = ({ movieAPI }) => {
                 <div className="modal-footer">
                   <button
                     type="button"
-                    className="btn btn-primary"
+                    className="btn btn-outline-warning"
                     data-bs-target={`#exampleModal${movie.id}2`}
                     data-bs-toggle="modal"
                     data-bs-dismiss="modal"
@@ -102,20 +102,20 @@ const CardMovie = ({ movieAPI }) => {
                   </button>
                   <Link
                     type="button"
-                    className="btn btn-primary"
+                    className="btn btn-warning"
                     to="/edit"
                     onClick={() => handleEdit(movie)}
                   >
-                    Editar
+                    <i class="bi bi-pencil-square"></i>
                   </Link>
                   <Link
                     type="button"
-                    className="btn btn-secondary"
+                    className="btn btn-danger"
                     data-bs-dismiss="modal"
                     to="/"
                     onClick={() => handleDelete(movie.id)}
                   >
-                    Eliminar
+                    <i class="bi bi-x-octagon-fill "></i>
                   </Link>
                 </div>
               </div>
@@ -133,7 +133,7 @@ const CardMovie = ({ movieAPI }) => {
                   <div className="modal-header">
                     <button
                       type="button"
-                      className="btn-close"
+                      className="btn-close btn-close-white"
                       data-bs-dismiss="modal"
                       aria-label="Close"
                     ></button>
@@ -147,8 +147,8 @@ const CardMovie = ({ movieAPI }) => {
                   </div>
                   <div className="modal-footer">
                     <button
-                      className="btn btn-primary"
-                      data-bs-target="#exampleModalToggle"
+                      className="btn btn-warning"
+                      data-bs-target={`#exampleModal${movie.id}2`}
                       data-bs-toggle="modal"
                       data-bs-dismiss="modal"
                     >
@@ -161,7 +161,7 @@ const CardMovie = ({ movieAPI }) => {
           </div>
         </div>
       ))}
-      {movieAPI.map((movie, index) => (
+      {movieAPI&&movieAPI.map((movie, index) => (
         <div
           className="cardMovie"
           key={`${index}-${movie.id}`}
@@ -189,7 +189,7 @@ const CardMovie = ({ movieAPI }) => {
                   <h5 className="modal-title">{movie.original_title}</h5>
                   <button
                     type="button"
-                    className="btn-close"
+                    className="btn-close btn-close-white"
                     data-bs-dismiss="modal"
                     aria-label="Close"
                   >
@@ -216,7 +216,7 @@ const CardMovie = ({ movieAPI }) => {
                 <div className="modal-footer">
                   <button
                     type="button"
-                    className="btn btn-primary"
+                    className="btn btn-outline-warning"
                     data-bs-target={`#exampleModal${movie.id}2`}
                     data-bs-toggle="modal"
                     data-bs-dismiss="modal"
@@ -240,7 +240,7 @@ const CardMovie = ({ movieAPI }) => {
                   <div className="modal-header">
                     <button
                       type="button"
-                      className="btn-close"
+                      className="btn-close btn-close-white"
                       data-bs-dismiss="modal"
                       aria-label="Close"
                     ></button>
@@ -261,8 +261,8 @@ const CardMovie = ({ movieAPI }) => {
                   </div>
                   <div className="modal-footer">
                     <button
-                      className="btn btn-primary"
-                      data-bs-target="#exampleModalToggle"
+                      className="btn btn-warning"
+                      data-bs-target={`#exampleModal${movie.id}2`}
                       data-bs-toggle="modal"
                       data-bs-dismiss="modal"
                     >

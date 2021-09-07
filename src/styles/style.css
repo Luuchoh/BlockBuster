@@ -117,3 +117,61 @@ h2{
     color: #FED941;
 }
 
+.modal-content {
+    background-color: var(--color-background) !important;
+    color: var(--color-white) !important;
+}
+.modal-header{
+    border: none !important;
+}
+.modal-footer{
+    border: none !important;
+}
+
+.modal-body::-webkit-scrollbar {
+    width: 8px;     
+    height: 8px;    
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+    background: var(--color-primary);
+    border-radius: 4px;
+}
+
+.modal-body::-webkit-scrollbar-thumb:hover {
+    background: var(--color-background);
+}
+
+.modal-body::-webkit-scrollbar-track {
+    background: var(--color-background);
+    border-radius: 4px;
+}
+
+.modal-body iframe,
+.modal-body video{
+    height: 98% !important;
+}
+
+@media (max-width: 1028px) {
+    .cardMovie{
+        width: calc(25% - 10px);
+    }
+}
+
+@media (max-width: 720px) {
+    .cardMovie{
+        width: calc(33% - 10px);
+    }
+}
+
+@media (max-width: 480px) {
+    .cardMovie{
+        width: calc(50% - 10px);
+    }
+}
+
+@media (max-width: 360px) {
+    .cardMovie{
+        width: calc(100% - 10px);
+    }
+}

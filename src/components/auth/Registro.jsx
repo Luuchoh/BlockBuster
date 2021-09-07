@@ -40,7 +40,7 @@ const Registro = () => {
         .required("Escribe tu contraseña."),
     }),
     onSubmit: () => {
-      dispatch(startRegisterWithEmailPasswordName(email, password1, nombre));
+      dispatch(startRegisterWithEmailPasswordName(email, password1, nombre, LinkImg));
     },
   });
 

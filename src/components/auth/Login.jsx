@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
-import { startGoogleLogin, startLoginEmailPassword } from "../../actions/auth";
+import { startFacebookLogin, startGoogleLogin, startLoginEmailPassword } from "../../actions/auth";
 
 import "../../styles/login-styles.css";
 
@@ -38,6 +38,9 @@ const Login = () => {
 
   const handleGoogleLogin = () => {
     dispatch(startGoogleLogin());
+  };
+  const handleFacebookLogin = () => {
+    dispatch(startFacebookLogin());
   };
 
   return (
@@ -116,6 +119,8 @@ const Login = () => {
                     <button
                       className="btn btn-facebook btn-login text-uppercase fw-bold"
                       type="submit"
+                      onClick={handleFacebookLogin}
+
                     >
                       <i className="fab fa-facebook-f me-2"></i> Ingresa con
                       with Facebook
