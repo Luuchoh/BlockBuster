@@ -173,7 +173,7 @@ const handleClickFile = () =>{
                       required
                     />
                     <label htmlFor="floatingPassword">
-                      https://example.com/image.jpg
+                      Imagen de perfil / avatar
                     </label>
                   </div>
 

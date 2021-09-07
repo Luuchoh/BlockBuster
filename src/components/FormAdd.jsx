@@ -129,6 +129,7 @@ const FormAdd = ({active}) => {
           placeholder="Video trailer"
           name="urlVideo"
           id="urlVideo"
+          placeholder="Url Imagen"
           value={urlVideo}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
@@ -167,6 +168,7 @@ const FormAdd = ({active}) => {
           placeholder="Imagen"
           name="urlImage"
           id="urlImage"
+          placeholder="Url imagen"
           value={urlImage}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
